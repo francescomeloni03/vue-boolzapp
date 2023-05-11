@@ -1,0 +1,62 @@
+
+
+body{
+    background: rgb(44,140,137);
+    background: linear-gradient(0deg, rgba(44,140,137,1) 85%, rgba(214,214,214,1) 85%);
+    height: 100vh;
+}
+
+
+.container{
+    width: 80%;
+    height: 80vh;
+    border: 1px solid black;
+    margin: auto;
+    display: flex;
+    margin-top: 40px;
+    
+}
+
+
+.left-box{
+    width: calc(100% / 3);
+    height: 100%;
+
+}
+
+.right-box{
+    width: calc(100% / 3 * 2);
+    border: 1px solid black;
+    height: 100%;
+
+}
+
+#header-utente{
+    height: 50px;
+    background-color: #eaeaea;
+}
+
+#box-notifiche{
+    height: 70px;
+    background-color: #8edafc;
+}
+
+#box-contatti{
+    background-color: white;
+    height: calc(100% - 120px);
+}
+
+
+
+#box-messaggio{
+    height: calc(100% - 100px);
+    background-image:url(../img/whatsapp.png);
+}
+
+#box-input-messaggio{
+    height: 50px;
+    background-color: #eaeaea;
+}
+
+
+
