@@ -5,22 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+   
+  
 </head>
 <body>
 
-    <div class="container">
+    <div id="app" class="container">
 
         <div class="left-box">
             <div id="header-utente">
+                <div id="header-avatar">
+                    <div><img :src="currentUser.avatar" alt=""></div> 
+                    <div>{{currentUser.name}}</div>
+                </div>
+               
+                <div id="header-button">
+                    <i class="fa-solid fa-spinner"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-list"></i>
+                </div>
 
             </div>
             <div id="box-notifiche">
+                <div id="din-don">
+                    <i class="fa-solid fa-bell-slash"></i>
+                </div>
+                <div><h5>Ricevi notifiche di nuovi messaggi</h5>
+                <h6><a href="">Attiva notifiche desktop</a> </h6></div>
 
             </div>
             <div id="box-contatti">
 
+                <div id="search">
+                    <div><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                    <div id="div-search"><input type="text" placeholder="Cerca o inizia una nuova chat"></div>
+                </div>
+                
+
+                <div id="contatti" v-for="(contact , i) in contacts" class="contatto" :class="contattoClasse(i)" @click="selezionaContatto(i)" > 
+                    <div id="avatar-contatto">
+                        <img :src="contact.avatar" alt="">
+                    </div>
+                    <div id="nome-contatto">
+                        <h4>{{contact.name}}</h4>
+                        <h6>isdhcsiux</h6>
+                    </div>
+                    <div id="orario-contatto">
+                        <h6>12:00</h6>
+                    </div>
+                </div>
+
             </div>
+
+            
 
         </div>
 
@@ -28,14 +69,30 @@
         <div class="right-box">
 
             <div id="header-utente">
+                <div id="header-avatar">
+                    <div><img :src="contacts[activeConversation].avatar" alt=""></div> 
+                    <div>{{contacts[activeConversation].name}}</div>
+                </div>
+               
+                <div id="header-button">
+                    <i class="fa-solid fa-spinner"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-list"></i>
+                </div>
+                
 
             </div>
             <div id="box-messaggio">
+                <div v-for="(message, i) in contacts[activeConversation].messages" class="box" :class="MessaggioRicInv(message)">{{message.message}}</div>
                 
             </div>
             <div id="box-input-messaggio">
-
+                <div id="box-emoji"><i class="fa-regular fa-face-smile"></i></div>
+                <div id="box-input"> <input @keyup.enter="addMessagge" v-model="Message" type="text" placeholder="Scrivi un messaggio"></div>
+                <div id="box-rec"><i class="fa-solid fa-microphone"></i>
             </div>
+
+        </div>
 
         </div>
 
@@ -46,9 +103,8 @@
 
 
 
-
-
     <script src="./js/main.js"></script>
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+
+   
 </body>
 </html>

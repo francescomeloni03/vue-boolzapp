@@ -1,8 +1,8 @@
 
 
 body{
-    background: rgb(44,140,137);
-    background: linear-gradient(0deg, rgba(44,140,137,1) 85%, rgba(214,214,214,1) 85%);
+    background: rgba(214,214,214,1);
+    background: linear-gradient(0deg,rgba(214,214,214,1) 85%,  rgba(44,140,137,1) 85%);
     height: 100vh;
 }
 
@@ -10,23 +10,21 @@ body{
 .container{
     width: 80%;
     height: 80vh;
-    border: 1px solid black;
     margin: auto;
     display: flex;
     margin-top: 40px;
-    
 }
 
 
 .left-box{
     width: calc(100% / 3);
     height: 100%;
+    border-right: 1px solid gray;
 
 }
 
 .right-box{
     width: calc(100% / 3 * 2);
-    border: 1px solid black;
     height: 100%;
 
 }
@@ -44,6 +42,7 @@ body{
 #box-contatti{
     background-color: white;
     height: calc(100% - 120px);
+     overflow-y: auto; 
 }
 
 
@@ -51,12 +50,211 @@ body{
 #box-messaggio{
     height: calc(100% - 100px);
     background-image:url(../img/whatsapp.png);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.messaggio-inviato{
+    align-self: flex-end;
+    background-color: green;
+
+}
+
+.messaggio-ricevuto{
+    align-self: flex-start;
+    background-color: white;
+
+}
+
+.box{
+    padding: 0.75rem;
+    margin: 0.5rem;
+    width: auto;
+    max-width: 300px;
+    border-radius: 0.5rem;
 }
 
 #box-input-messaggio{
     height: 50px;
     background-color: #eaeaea;
+    display: flex;
 }
 
 
 
+
+#header-utente{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#header-avatar img{
+    width: 40px;
+    border-radius: 30px;
+}
+
+#header-avatar{
+    display: flex;
+    align-items: center;
+}
+
+
+
+#header-button i{
+    color: grey;
+    padding-left: 5px;
+}
+
+
+
+#din-don i{
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 23px;
+    padding-left: 6px;
+    padding-top: 7px;
+    display: flex;
+    color: #8edafc;
+}
+
+#din-don{
+    padding-top: 18px;
+    padding-left: 18px;
+}
+
+#box-notifiche{
+    display: flex;
+}
+
+#box-notifiche h5{
+    margin: 0;
+    margin-top: 20px;
+}
+#box-notifiche a,h6{
+    margin: 0;
+    color: grey;
+}
+
+
+
+
+#search{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+#search button{
+    width: 50px;
+    height: 29px;
+    border: 1px ;
+    cursor: pointer;
+    background-color: white;
+    color: grey;
+}
+
+#search input{
+    height: 27px;
+    width: 100%;
+    border: 1px  ;
+    border-left: none;
+}
+
+#div-search{
+    width: 80%;
+}
+
+
+#contatti{
+    display: flex;
+    height: 60px;
+    justify-content: space-evenly;
+    
+}
+
+
+#avatar-contatto{
+    width: 50px;
+ 
+}
+
+#avatar-contatto img{
+    width: 40px;
+    border-radius: 50px;
+    padding-left: 5px;
+    padding-top: 9px;
+    
+}
+
+
+#nome-contatto{
+    width: 70vh;
+}
+
+.orario-contatto{
+    width: 30px;
+}
+
+
+#nome-contatto h4{
+    margin: 0;
+    margin-top: 9px;
+    margin-left: 5px;
+}
+
+#nome-contatto h6{
+    margin: 0;
+    margin-left: 5px;
+}
+
+
+#orario-contatto h6{
+    padding-top: 5px;
+}
+
+
+
+
+#box-emoji{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#box-input{
+    width: 80%;
+    display: flex;
+    align-items: center;
+
+}
+
+#box-rec{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#box-input input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+}
+
+
+
+
+.contatto:hover {
+    background-color: #EEEEEE;
+}
