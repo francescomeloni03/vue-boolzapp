@@ -4,7 +4,12 @@ createApp({
     data(){ 
         return {
          
-            Message: "",
+
+            Message: {
+                message:"",
+                status: "sent"
+            },
+            inputSearch:"",
             activeConversation: 0,
             currentUser: {
                 name: "Sofia",
@@ -176,11 +181,12 @@ createApp({
         }
     },
     methods: {
-              selezionaContatto(i) {
 
+              selezionaContatto(i) {
                   this.activeConversation = i;
               },
 
+            //   Settings dei messaggi inviati o ricevuti
                MessaggioRicInv(message){
 
                   let classe = "messaggio-inviato";
@@ -197,12 +203,32 @@ createApp({
                     return (this.activeConversation == i) ? "activeContact" : "";
                },
 
+               //    Nuovo messaggio inviato dall'utente
                addMessage() {
-                return console.log(this.Message);
+                let newMessage = {
+                    message: this.Message.message,
+                    status: "sent",
+                }
 
-               }
+                let newReceived = {
+                    message: `ok`,
+                    status: "received"
+                }
+                this.contacts[this.activeConversation].messages.push(newMessage);
+                setTimeout(() => this.contacts[this.activeConversation].messages.push(newReceived), 1000)
+               },
 
 
+
+
+               //    Filtraggio del contatto tramite l'input
+               filtraggioContatto() {
+                this.contacts.forEach(element => {
+                    let toCheck = element.name.toLowerCase()
+                    toCheck = toCheck.slice(0, this.inputSearch.length)
+                    toCheck == this.inputSearch.toLowerCase() ? element.visible = true : element.visible = false;
+                })
+            },
 
 }
 

@@ -16,7 +16,10 @@
 
     <div id="app" class="container">
 
+
+        <!-- PARTE SINISTRA -->
         <div class="left-box">
+
             <div id="header-utente">
                 <div id="header-avatar">
                     <div><img :src="currentUser.avatar" alt=""></div> 
@@ -30,6 +33,8 @@
                 </div>
 
             </div>
+
+            <!-- BOX NOTIFICHE -->
             <div id="box-notifiche">
                 <div id="din-don">
                     <i class="fa-solid fa-bell-slash"></i>
@@ -38,15 +43,19 @@
                 <h6><a href="">Attiva notifiche desktop</a> </h6></div>
 
             </div>
+
             <div id="box-contatti">
 
+
+                <!-- SEZIONE SEARCH -->
                 <div id="search">
                     <div><button><i class="fa-solid fa-magnifying-glass"></i></button></div>
-                    <div id="div-search"><input type="text" placeholder="Cerca o inizia una nuova chat"></div>
+                    <div id="div-search"><input @keyup="filtraggioContatto" v-model="inputSearch"  type="text" placeholder="Cerca o inizia una nuova chat"></div>
                 </div>
                 
 
-                <div id="contatti" v-for="(contact , i) in contacts" class="contatto" :class="contattoClasse(i)" @click="selezionaContatto(i)" > 
+                <!-- SEZIONE CONTATTI -->
+                <div v-show="contact.visible==true" id="contatti" v-for="(contact , i) in contacts" class="contatto" :class="contattoClasse(i)" @click="selezionaContatto(i)" > 
                     <div id="avatar-contatto">
                         <img :src="contact.avatar" alt="">
                     </div>
@@ -58,14 +67,12 @@
                         <h6>12:00</h6>
                     </div>
                 </div>
-
             </div>
-
-            
-
         </div>
 
 
+
+        <!-- PARTE DESTRA -->
         <div class="right-box">
 
             <div id="header-utente">
@@ -82,13 +89,17 @@
                 
 
             </div>
+
+            <!-- SEZIONE SCHERMO MESSAGGI -->
             <div id="box-messaggio">
                 <div v-for="(message, i) in contacts[activeConversation].messages" class="box" :class="MessaggioRicInv(message)">{{message.message}}</div>
                 
             </div>
+
+            <!-- SEZIONE INPUT SEARCH MESSAGE -->
             <div id="box-input-messaggio">
                 <div id="box-emoji"><i class="fa-regular fa-face-smile"></i></div>
-                <div id="box-input"> <input @keyup.enter="addMessagge" v-model="Message" type="text" placeholder="Scrivi un messaggio"></div>
+                <div id="box-input"> <input @keyup.enter="addMessage" v-model="Message.message" type="text" placeholder="Scrivi un messaggio"></div>
                 <div id="box-rec"><i class="fa-solid fa-microphone"></i>
             </div>
 

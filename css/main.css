@@ -7,6 +7,9 @@ body{
 }
 
 
+
+
+
 .container{
     width: 80%;
     height: 80vh;
@@ -16,6 +19,10 @@ body{
 }
 
 
+
+
+/************** PARTE SINISTRA ***************/
+
 .left-box{
     width: calc(100% / 3);
     height: 100%;
@@ -23,15 +30,15 @@ body{
 
 }
 
-.right-box{
-    width: calc(100% / 3 * 2);
-    height: 100%;
-
-}
-
 #header-utente{
     height: 50px;
     background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    
 }
 
 #box-notifiche{
@@ -39,62 +46,11 @@ body{
     background-color: #8edafc;
 }
 
+
 #box-contatti{
     background-color: white;
     height: calc(100% - 120px);
      overflow-y: auto; 
-}
-
-
-
-#box-messaggio{
-    height: calc(100% - 100px);
-    background-image:url(../img/whatsapp.png);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.messaggio-inviato{
-    align-self: flex-end;
-    background-color: green;
-
-}
-
-.messaggio-ricevuto{
-    align-self: flex-start;
-    background-color: white;
-
-}
-
-.box{
-    padding: 0.75rem;
-    margin: 0.5rem;
-    width: auto;
-    max-width: 300px;
-    border-radius: 0.5rem;
-}
-
-#box-input-messaggio{
-    height: 50px;
-    background-color: #eaeaea;
-    display: flex;
-}
-
-
-
-
-#header-utente{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-#header-avatar img{
-    width: 40px;
-    border-radius: 30px;
 }
 
 #header-avatar{
@@ -103,6 +59,10 @@ body{
 }
 
 
+#header-avatar img{
+    width: 40px;
+    border-radius: 30px;
+}
 
 #header-button i{
     color: grey;
@@ -139,8 +99,6 @@ body{
     margin: 0;
     color: grey;
 }
-
-
 
 
 #search{
@@ -222,6 +180,46 @@ body{
 
 
 
+
+
+
+/************** PARTE DESTRA ***************/
+
+ #box-messaggio{
+    height: calc(100% - 100px);
+    background-image:url(../img/whatsapp.png);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.messaggio-inviato{
+    align-self: flex-end;
+    background-color: green;
+
+}
+
+.messaggio-ricevuto{
+    align-self: flex-start;
+    background-color: white;
+
+} 
+
+ .box{
+    padding: 0.75rem;
+    margin: 0.5rem;
+    width: auto;
+    max-width: 300px;
+    border-radius: 0.5rem;
+} 
+
+#box-input-messaggio{
+    height: 50px;
+    background-color: #eaeaea;
+    display: flex;
+} 
+
+
 #box-emoji{
     width: 10%;
     display: flex;
@@ -257,4 +255,13 @@ body{
 
 .contatto:hover {
     background-color: #EEEEEE;
+}
+
+
+
+
+.right-box{
+    width: calc(100% / 3 * 2);
+    height: 100%;
+
 }
